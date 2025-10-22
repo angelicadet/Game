@@ -33,12 +33,12 @@ public class Game {
         int points = 0;
         if (levelOne.goalReached()) {
             points += levelOne.getPoints();
-                if (levelTwo.goalReached()) {
+            if (levelTwo.goalReached()) {
                 points += levelTwo.getPoints();
-                 }
-                    if (levelThree.goalReached()) {
-                        points += levelThree.getPoints();
-                    }
+                if (levelThree.goalReached()) {
+                    points += levelThree.getPoints();
+                }
+            }
         }
         if (bonus)
              points *= 3;
@@ -46,13 +46,14 @@ public class Game {
     }
 
     public int playManyTimes(int num) {
-        int max = 0;
-        while (num > 0)
+        int maxScore = 0;
+        while (num > 0) {
             play();
-        int score = getScore();
-        if (score > max) max = score;
-        num--;
-        return max;
+            int score = getScore();
+            if (score > maxScore) maxScore = score;
+            num--;
+        }
+        return maxScore;
     }
 
     public Level getLevel(int i) {
